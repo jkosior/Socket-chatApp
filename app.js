@@ -24,7 +24,7 @@ io.on("connection", client =>{
 app.use("/static", express.static(`${__dirname}`));
 
 app.get("/", (req,res) => {
-    res.sendFile(`${__dirname}/index.html`);
+    res.sendFile(`${__dirname}/html/view.html`);
 });
 
 server.listen(8080);
