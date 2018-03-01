@@ -2,18 +2,20 @@ body {
     background-color: rgba(0,0,0, 0.9)
 }
 
+.post{
+    max-height: auto;
+}
+
+.own{
+    text-align: right;
+}
+
 input[type="text"], #output {
     border: 1px solid green; 
     color: green;
     width: 89%; 
     height: auto; 
     background-color: black;
-}
-
-#output {
-    width: 100%;
-    height: 90%;
-    overflow: auto;
 }
 
 input[type="text"]{
@@ -29,9 +31,8 @@ input[type="submit"]{
     width: 10%;
 }
 
-.post{
-    max-height: auto;
-}
-.own{
-    text-align: right;
+#output {
+    width: 100%;
+    height: 90%;
+    overflow: auto;
 }
