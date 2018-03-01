@@ -1,8 +1,9 @@
 document.addEventListener("DOMContentLoaded", function(){
 
     const socket = io.connect("http://localhost:8080");
-    let form = document.getElementById("chat_form");
-    let nickname;
+    let client = {
+        nickname: null
+    };
    
 
     $("#chat_form").submit(function(){
@@ -12,19 +13,25 @@ document.addEventListener("DOMContentLoaded", function(){
     });   
 
     socket.on('connect', data => {
-        nickname = prompt("What is your nickname?");
-        socket.emit("join", nickname);
+        while (client.nickname === null){
+            client.nickname = prompt("What is your nickname?");
+            if (client.nickname !== null){
+                socket.emit("join", client.nickname);
+            }
+        }
     });
 
     socket.on("messages", data => {
-        console.log(data)
         let output = document.getElementById("output");
         let p = document.createElement("p");
         let textNode = document.createTextNode(`${data.name}: ${data.message}`);
+
         p.className = "post";
-        if (data.name === nickname) {
+
+        if (data.name === client.nickname) {
             p.className += " own";
         }
+
         p.appendChild(textNode);
         output.appendChild(p);
     }); 
