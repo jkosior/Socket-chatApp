@@ -23,7 +23,7 @@ input[type="text"]{
     margin-top: 10px;
 }
 
-input[type="submit"]{
+input[type="submit"], #users{
     background-color: black; 
     color: green; 
     border: 1px solid green; 
@@ -31,8 +31,16 @@ input[type="submit"]{
     width: 10%;
 }
 
-#output {
-    width: 100%;
+#output, #users {
     height: 90%;
     overflow: auto;
+}
+
+#output{
+    float: left;
+}
+
+#users {
+    float: right;
+    margin-right: 0.25%;
 }
