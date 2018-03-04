@@ -40,4 +40,4 @@ const helpers = {
     
 };
 
-exports.default = helpers;
+module.exports = helpers;
